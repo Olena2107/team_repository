@@ -88,3 +88,38 @@ class NewUser extends User {
 const teacher = new NewUser({ username: "Ajax", age: 40, numberOfPosts: 78 });
 console.log(teacher);
 teacher.getInfo();
+
+//ЗАДАЧА 3
+//Напиши клас Storage який створює об'єкти для керування складом товарів.
+//При виклику отримуватиме один аргумент - початковий масив товарів, і записуватиме його у властивість items.
+//Добавте методи класу:
+
+//getItems() - повертає масив товарів.
+//addItem(item) - отримує новий товар та додає його до поточних.
+//removeItem(item) - отримає товар і, якщо він є, видаляє його з поточних.
+
+
+class Storage{
+    constructor (items){
+        this.items=items;
+         
+    }
+    getItems() {
+        return this.items
+    }
+    addItem(item){
+this.items.push(item);
+    }
+    removeItem(item){
+        const index = this.items.indexOf(item);
+if (index === -1){return} else{this.items.splice(index,1)}
+    } 
+}
+const items = new Storage(["Виноград", "Банани", "Кокоси", "Ківі"]);
+items.addItem("Манго");
+items.removeItem("Ківі")
+console.log(items);
+
+ЗАДАЧА 4
+Напиши клас Client який створює об'єкт із властивостями login і email.
+Оголоси приватні властивості #login і #email, доступ до яких зроби через геттер та сеттер login і email.
